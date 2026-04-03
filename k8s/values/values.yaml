@@ -1,19 +1,17 @@
 global:
-  domain: ALICE_LMS.alice-platform.com
+  domain: alice-lms.alice-platform.com
 frontend:
   replicas: 2
-  image: ALICE_LMS/frontend:latest
+  image: alice-lms/frontend:latest
   resources: { requests: { cpu: 100m, memory: 128Mi }, limits: { cpu: 500m, memory: 512Mi } }
 apiGateway:
   replicas: 2
-  image: ALICE_LMS/api-gateway:latest
+  image: alice-lms/api-gateway:latest
   resources: { requests: { cpu: 200m, memory: 256Mi }, limits: { cpu: 1000m, memory: 1Gi } }
 coreEngine:
   replicas: 2
-  image: ALICE_LMS/core-engine:latest
+  image: alice-lms/core-engine:latest
   resources: { requests: { cpu: 500m, memory: 512Mi }, limits: { cpu: 2000m, memory: 2Gi } }
-redis:
-  image: redis:7-alpine
 autoscaling:
   enabled: true
   minReplicas: 2
